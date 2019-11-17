@@ -1,0 +1,32 @@
+[2019-11-17 10:51:16.784][PID:12528][TID:17304][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:16.827][PID:12528][TID:9908][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:16.858][PID:12528][TID:14124][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:16.891][PID:12528][TID:3876][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:16.925][PID:12528][TID:15512][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:16.957][PID:12528][TID:17304][INFO][test.cpp][func:  17]g_num = 1
+[2019-11-17 10:51:16.991][PID:12528][TID:17304][INFO][test.cpp][func:  19]exit
+[2019-11-17 10:51:17.025][PID:12528][TID:14124][INFO][test.cpp][func:  17]g_num = 3
+[2019-11-17 10:51:17.058][PID:12528][TID:14124][INFO][test.cpp][func:  19]exit
+[2019-11-17 10:51:17.091][PID:12528][TID:3876][INFO][test.cpp][func:  17]g_num = 4
+[2019-11-17 10:51:17.127][PID:12528][TID:3876][INFO][test.cpp][func:  19]exit
+[2019-11-17 10:51:17.214][PID:12528][TID:15512][INFO][test.cpp][func:  17]g_num = 5
+[2019-11-17 10:51:17.247][PID:12528][TID:15512][INFO][test.cpp][func:  19]exit
+[2019-11-17 10:51:17.284][PID:12528][TID:9908][INFO][test.cpp][func:  17]g_num = 2
+[2019-11-17 10:51:17.313][PID:12528][TID:9908][INFO][test.cpp][func:  19]exit
+
+
+[2019-11-17 10:51:33.173][PID:8064][TID:15340][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:33.227][PID:8064][TID:14960][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:33.260][PID:8064][TID:15144][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:33.305][PID:8064][TID:14896][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:33.338][PID:8064][TID:13396][INFO][test.cpp][func:  13]enter
+[2019-11-17 10:51:33.372][PID:8064][TID:15340][INFO][test.cpp][func:  17]g_num = 1
+[2019-11-17 10:51:33.405][PID:8064][TID:15340][INFO][test.cpp][func:  19]exit
+[2019-11-17 10:51:33.451][PID:8064][TID:15144][INFO][test.cpp][func:  17]g_num = 3
+[2019-11-17 10:51:33.483][PID:8064][TID:15144][INFO][test.cpp][func:  19]exit
+[2019-11-17 10:51:33.516][PID:8064][TID:14960][INFO][test.cpp][func:  17]g_num = 2
+[2019-11-17 10:51:33.592][PID:8064][TID:14960][INFO][test.cpp][func:  19]exit
+[2019-11-17 10:51:33.627][PID:8064][TID:14896][INFO][test.cpp][func:  17]g_num = 4
+[2019-11-17 10:51:33.660][PID:8064][TID:14896][INFO][test.cpp][func:  19]exit
+[2019-11-17 10:51:33.694][PID:8064][TID:13396][INFO][test.cpp][func:  17]g_num = 5
+[2019-11-17 10:51:33.727][PID:8064][TID:13396][INFO][test.cpp][func:  19]exit
