@@ -5,6 +5,7 @@ string           LOG::logBuffer   = "";
 HANDLE           LOG::mFileHandle = INVALID_HANDLE_VALUE;
 mutex            LOG::log_mutex;
 CRITICAL_SECTION LOG::criticalSection;
+int              LOG::writtenSize = 0;
 
 LOG::LOG()
 {
@@ -70,7 +71,7 @@ int LOG::createFile()
 
 	// 创建log文件的路径
 	TCHAR logFileDirectory[256];
-	_stprintf_s(logFileDirectory, _T("%s\\Test\\"), fileDirectory);// 使用_stprintf_s需要包含头文件<TCHAR.H>
+	_stprintf_s(logFileDirectory, _T("%s\\Log\\"), fileDirectory);// 使用_stprintf_s需要包含头文件<TCHAR.H>
 
 	// 文件夹不存在则创建文件夹
 	if (_taccess(logFileDirectory, 0) == -1)
@@ -78,14 +79,22 @@ int LOG::createFile()
 		_tmkdir(logFileDirectory);
 	}
 
-	TCHAR cTmpPath[MAX_PATH] = { 0 };
-	TCHAR* lpPos = NULL;
-	TCHAR cTmp = _T('\0');
+	WCHAR moduleFileName[MAX_PATH];
+	GetModuleFileName(NULL, moduleFileName, MAX_PATH);
+	PWCHAR p = wcsrchr(moduleFileName, _T('\\'));
+	p++;
+	// 去掉后缀名
+	for (int i = _tcslen(p); i > 0; i--)
+	{
+		if (p[i] == _T('.'))
+		{
+			p[i] = _T('\0');
+			break;
+		}
+	}
+	WCHAR pszLogFileName[MAX_PATH];
+	_stprintf_s(pszLogFileName, _T("%s%s.log"), logFileDirectory, p);
 
-	WCHAR pszLogFileName[256];
-	// wcscat:连接字符串
-	wcscat(logFileDirectory, _T("test.log"));
-	_stprintf_s(pszLogFileName, _T("%s"), logFileDirectory);
 	mFileHandle = CreateFile(
 		pszLogFileName,
 		GENERIC_READ | GENERIC_WRITE,
@@ -187,6 +196,7 @@ int LOG::writeLog(
 
 	logBuffer += string(logInfo2);
 	logBuffer += string("\n");
+	writtenSize += logBuffer.length();
 
 	outputToTarget();
 	LeaveCriticalSection(&criticalSection);

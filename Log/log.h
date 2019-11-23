@@ -35,6 +35,9 @@ enum LOGTARGET
 #define EXIT()  LOG_INFO("exit")
 #define FAIL()  LOG_ERROR("fail")
 
+// 单个日志文件最大存储
+#define MAX_SIZE 2*1024*1024  // 2M
+
 class LOG
 {
 public:
@@ -82,6 +85,8 @@ private:
 
 	// 存储log的buffer
 	static string logBuffer;
+	// 已写的log长度
+	static int writtenSize;
 
 	// Log级别
 	LOGLEVEL logLevel;
