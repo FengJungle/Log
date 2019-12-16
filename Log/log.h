@@ -12,10 +12,10 @@ using namespace std;
 enum LOGLEVEL
 {
 	LOG_LEVEL_NONE,
-	LOG_LEVEL_DEBUG,     // debug
-	LOG_LEVEL_INFO,      // info
+	LOG_LEVEL_ERROR,     // error
 	LOG_LEVEL_WARNING,   // warning
-	LOG_LEVEL_ERROR      // error
+	LOG_LEVEL_DEBUG,     // debug
+	LOG_LEVEL_INFO,      // info	
 };
 
 enum LOGTARGET
@@ -26,10 +26,10 @@ enum LOGTARGET
 };
 
 #define FILENAME(x) strrchr(x,'\\')?strrchr(x,'\\')+1:x
-#define LOG_DEBUG(...) LOG::writeLog(LOG_LEVEL_DEBUG, (unsigned char*)(FILENAME(__FILE__)), (unsigned char*)(__FUNCTION__), (int)(__LINE__), __VA_ARGS__)
-#define LOG_INFO(...)  LOG::writeLog(LOG_LEVEL_INFO, (unsigned char*)(FILENAME(__FILE__)), (unsigned char*)(__FUNCTION__), (int)(__LINE__), __VA_ARGS__)
+#define LOG_DEBUG(...)    LOG::writeLog(LOG_LEVEL_DEBUG, (unsigned char*)(FILENAME(__FILE__)), (unsigned char*)(__FUNCTION__), (int)(__LINE__), __VA_ARGS__)
+#define LOG_INFO(...)     LOG::writeLog(LOG_LEVEL_INFO, (unsigned char*)(FILENAME(__FILE__)), (unsigned char*)(__FUNCTION__), (int)(__LINE__), __VA_ARGS__)
 #define LOG_WARNING(...)  LOG::writeLog(LOG_LEVEL_WARNING, (unsigned char*)(FILENAME(__FILE__)), (unsigned char*)(__FUNCTION__), (int)(__LINE__), __VA_ARGS__)
-#define LOG_ERROR(...) LOG::writeLog(LOG_LEVEL_ERROR, (unsigned char*)(FILENAME(__FILE__)), (unsigned char*)(__FUNCTION__), (int)(__LINE__), __VA_ARGS__)
+#define LOG_ERROR(...)    LOG::writeLog(LOG_LEVEL_ERROR, (unsigned char*)(FILENAME(__FILE__)), (unsigned char*)(__FUNCTION__), (int)(__LINE__), __VA_ARGS__)
 
 #define ENTER() LOG_INFO("enter")
 #define EXIT()  LOG_INFO("exit")
